@@ -1,0 +1,13 @@
+body {
+  background-color: #33A5FF
+}
+
+h1 {
+  font: bold 5em "Century Gothic", "Century Gothic", "Apple Gothic", sans-serif;
+  text-align: center;
+  size: 50px;
+}
+
+.add-task {
+  text-align: center;
+}
