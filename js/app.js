@@ -1,4 +1,4 @@
-var toDOList = [];
+var toDoList = [];
 
 window.onload = function() {
   document.getElementById('input-task').onclick = addTask;
@@ -7,10 +7,16 @@ window.onload = function() {
 
 const addTask = function () {
 
-  toDOList.push(document.getElementById("myText").value);
-  document.getElementById("myText").value = "";
+  toDoList.push(document.getElementById("user-input").value);
+  document.getElementById("user-input").value = "";
 
 var table = document.getElementById('to-do-table');
-
-
+console.log(toDoList)
+toDoList.forEach(function(item) {
+  table += "<tr>";
+  table += "<td>" + item.toDoList + "</td>"
+  table += "</tr>";
+});
+table += "</table>"
+ return table;
 }
