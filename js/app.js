@@ -13,15 +13,14 @@ const addTask = function () {
 }
 
 
+
 const makeList = function () {
 
-var table = "<table>";
-return(toDoList)
-toDoList.forEach(function(item) {
-  table += "<tr>";
-  table += "<td>" + item.toDoList + "</td>"
-  table += "</tr>";
+
+  toDoList.forEach(function(item) {
+  var table = document.getElementById("to-do-table");
+  var row = table.insertRow(0);
+  var cell1 = row.insertCell(0);
+  cell1.innerHTML = document.getElementById("user-input").value;
 });
-table += "</table>"
- return table;
 }
