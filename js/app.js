@@ -8,14 +8,17 @@ window.onload = function() {
 
 const addTask = function () {
 
-  toDoList.push(document.getElementById("user-input").value);
-  document.getElementById("user-input").value = "";
+  var task = document.getElementById("user-input").value;
+
+  if (task != "") {
+    toDoList.push(task);
+    document.getElementById("user-input").value = "";
+  }
 }
 
 
 
 const makeList = function () {
-
 
   toDoList.forEach(function(item) {
   var table = document.getElementById("to-do-table");
