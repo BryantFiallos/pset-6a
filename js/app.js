@@ -17,7 +17,6 @@ document.getElementById('to-do-list-display').innerHTML = newInnerHtml;
 
 
 
-
 function addTask(addListItem) {
 
   var task = document.getElementById("user-input").value;
@@ -26,11 +25,16 @@ function addTask(addListItem) {
                 alert("New item cannot be empty\n");
             } else {
                 var new_item_num = toDoListArray.length
-				toDoListArray.push({todo_index_num:new_item_num, todo_status:"", todo_description:task.value});
+				toDoListArray.push({todo_index_num:new_item_num, todo_status:"", todo_description:document.getElementById("user-input").value});
 
         document.getElementById("user-input").value = "";
 }
   refreshToDoList();
+}
+
+
+function setItemCompleted () {
+
 }
 
 
