@@ -1,21 +1,37 @@
 var toDoList = [];
 
-window.onload = function() {
-  document.getElementById('input-task').onclick = addTask;
-  document.getElementById("display").innerHTML = makeList;
+
+
+
+function refreshToDoList() {
+
+  newInnerHtml = "";
+
+  for (var j = 0; j < toDoList; j++){
+    newInnerHtml += '<tr><td><input onclick="setItemCompleted(' + toDoListArray[j].todo_index_num + ')" type="checkbox" name="item_' + toDoListArray[j].todo_index_num + '" value="' + toDoListArray[j].todo_status + '" ' + toDoListArray[j].todo_status + '></td><td>' + toDoListArray[j].todo_index_num + ' :</td><td class="todo_item_' + toDoListArray[j].todo_status + '">' + toDoListArray[j].todo_description + '</td><td><img onclick="moveItemToTop(' + toDoListArray[j].todo_index_num + ')" src="images\\red\\24x24\\Arrow1 Up.gif"></td><td><img onclick="moveItemToBottom(' + toDoListArray[j].todo_index_num + ')" src="images\\red\\24x24\\Arrow1 Down.gif"></td><td><img onclick="deleteItem(' + toDoListArray[j].todo_index_num + ')" src="images\\red\\24x24\\trash.gif"></td></tr>';
+  }
+
+document.getElementById('to-do-list-display').innerHTML = newInnerHtml;
+
 }
 
 
-const addTask = function () {
+
+
+function addTask() {
 
   var task = document.getElementById("user-input").value;
 
-  if (task != "") {
-    toDoList.push(task);
-    document.getElementById("user-input").value = "";
-  }
-}
+  if (task == null || task == undefined || task.length == 0) {
+                alert("New item cannot be empty\n");
+            } else {
+                var new_item_num = toDoListArray.length
+				toDoListArray.push({todo_index_num:new_item_num, todo_status:"", todo_description:add_item.value});
 
+        document.getElementById("user-imput").value = "";
+}
+  refreshToDoList();
+}
 
 
 const makeList = function () {
