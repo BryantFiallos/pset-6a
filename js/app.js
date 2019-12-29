@@ -8,7 +8,7 @@ function refreshToDoList() {
   newInnerHtml = "";
 
   for (var j = 0; j < toDoListArray.length; j++){
-    newInnerHtml += '<tr><td><input onclick="setItemCompleted(' + toDoListArray[j].todo_index_num + ')" type="checkbox" name="item_' + toDoListArray[j].todo_index_num + '" value="' + toDoListArray[j].todo_status + '" ' + toDoListArray[j].todo_status + '></td><td>' + toDoListArray[j].todo_index_num + ' :</td><td class="todo_item_' + toDoListArray[j].todo_status + '">' + toDoListArray[j].todo_description + '</td><td><img onclick="moveItemToTop(' + toDoListArray[j].todo_index_num + ')" src="images\\red\\24x24\\Arrow1 Up.gif"></td><td><img onclick="moveItemToBottom(' + toDoListArray[j].todo_index_num + ')" src="images\\red\\24x24\\Arrow1 Down.gif"></td><td><img onclick="deleteItem(' + toDoListArray[j].todo_index_num + ')" src="images\\red\\24x24\\trash.gif"></td></tr>';
+    newInnerHtml += '<tr><td><img onclick="setItemCompleted(' + toDoListArray[j].todo_index_num + ')" src="images\\black\\24x24\\Ok.gif" name="item_' + toDoListArray[j].todo_index_num + '" value="' + toDoListArray[j].todo_status + '" ' + toDoListArray[j].todo_status + '></td><td>' + toDoListArray[j].todo_index_num + ' :</td><td class="todo_item_' + toDoListArray[j].todo_status + '">' + toDoListArray[j].todo_description + '</td><td><img onclick="moveItemToTop(' + toDoListArray[j].todo_index_num + ')" src="images\\black\\24x24\\Arrow1 Up.gif"></td><td><img onclick="moveItemToBottom(' + toDoListArray[j].todo_index_num + ')" src="images\\black\\24x24\\Arrow1 Down.gif"></td><td><img onclick="deleteItem(' + toDoListArray[j].todo_index_num + ')" src="images\\red\\24x24\\trash.gif"></td></tr>';
   }
 
 document.getElementById('to-do-list-display').innerHTML = newInnerHtml;
@@ -34,7 +34,7 @@ function addTask(addListItem) {
 
 
 function setItemCompleted () {
-
+alert("complete");
 }
 
 

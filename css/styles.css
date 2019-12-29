@@ -11,3 +11,8 @@ h1 {
 .user-input {
   text-align: center;
 }
+
+input:checked {
+  text-decoration: line-through;
+  color: green;
+}
