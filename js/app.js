@@ -37,10 +37,9 @@ function setItemCompleted (item_index_num) {
   toDoListArray[item_index_num].todo_status = "completed";
 
   if (toDoListArray[item_index_num].todo_status == "completed") {
-  document.getElementsByClassName('todo_item_completed').classList.add("completed");
-
+  var completedTask = document.getElementsByClassName("todo_item_completed");
   }
-
+refreshToDoList();
 }
 
 

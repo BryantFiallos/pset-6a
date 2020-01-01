@@ -8,6 +8,10 @@ h1 {
   size: 50px;
 }
 
+table {
+  border: 1px solid black;
+}
+
 .user-input {
   text-align: center;
 }
