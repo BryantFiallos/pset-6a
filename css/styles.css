@@ -12,7 +12,6 @@ h1 {
   text-align: center;
 }
 
-input:checked {
+.todo_item_completed {
   text-decoration: line-through;
-  color: green;
 }

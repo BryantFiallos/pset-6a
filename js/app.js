@@ -22,7 +22,7 @@ function addTask(addListItem) {
   var task = document.getElementById("user-input").value;
 
   if (task == null || task == undefined || task.length == 0) {
-                alert("New item cannot be empty\n");
+                alert("New task cannot be empty\n");
             } else {
                 var new_item_num = toDoListArray.length
 				toDoListArray.push({todo_index_num:new_item_num, todo_status:"", todo_description:document.getElementById("user-input").value});
@@ -33,9 +33,24 @@ function addTask(addListItem) {
 }
 
 
-function setItemCompleted () {
-alert("complete");
+function setItemCompleted (item_index_num) {
+  toDoListArray[item_index_num].todo_status = "completed";
+
+  if (toDoListArray[item_index_num].todo_status == "completed") {
+  document.getElementsByClassName('todo_item_completed').classList.add("completed");
+
+  }
+
 }
+
+
+
+
+
+
+
+
+
 
 
 const makeList = function () {
