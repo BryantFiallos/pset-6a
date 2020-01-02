@@ -14,11 +14,15 @@ function refreshToDoList() {
   newInnerHtml = "";
 
   for (var j = 0; j < toDoListArray.length; j++){
-    newInnerHtml += '<tr><td><img onclick="setItemCompleted(' + toDoListArray[j].todo_index_num + ')" src="images\\black\\24x24\\Ok.gif" name="item_' + toDoListArray[j].todo_index_num + '" value="' + toDoListArray[j].todo_status + '" ' + toDoListArray[j].todo_status + '></td><td>' + toDoListArray[j].todo_index_num + ' :</td><td class="todo_item_' + toDoListArray[j].todo_status + '">' + toDoListArray[j].todo_description + '</td><td><img onclick="moveItemToTop(' + toDoListArray[j].todo_index_num + ')" src="images\\black\\24x24\\Arrow1 Up.gif"></td><td><img onclick="moveItemToBottom(' + toDoListArray[j].todo_index_num + ')" src="images\\black\\24x24\\Arrow1 Down.gif"></td><td><img onclick="deleteItem(' + toDoListArray[j].todo_index_num + ')" src="images\\red\\24x24\\trash.gif"></td></tr>';
+    newInnerHtml += '<tr><td><img onclick="setItemCompleted(' + toDoListArray[j].todo_index_num + ')" src="images\\black\\24x24\\Ok.gif" name="item_' + toDoListArray[j].todo_index_num + '" value="' + toDoListArray[j].todo_status + '" ' + toDoListArray[j].todo_status + '></td><td>' + (toDoListArray[j].todo_index_num + 1) + ' :</td><td class="todo_item_' + toDoListArray[j].todo_status + '">' + toDoListArray[j].todo_description + '</td><td><img onclick="moveItemToTop(' + toDoListArray[j].todo_index_num + ')" src="images\\black\\24x24\\Arrow1 Up.gif"></td><td><img onclick="moveItemToBottom(' + toDoListArray[j].todo_index_num + ')" src="images\\black\\24x24\\Arrow1 Down.gif"></td><td><img onclick="deleteItem(' + toDoListArray[j].todo_index_num + ')" src="images\\red\\24x24\\trash.gif"></td></tr>';
   }
 
 document.getElementById('to-do-list-display').innerHTML = newInnerHtml;
 
+  if (toDoListArray.length > 0) {
+    document.getElementById('to-do-list-display').style.borderWidth = "1px";
+    document.getElementById('to-do-list-display').style.borderColor = "black";
+  }
 }
 
 
@@ -42,14 +46,15 @@ function addTask() {
 
 
 function setItemCompleted (item_index_num) {
+  if (toDoListArray[item_index_num].todo_status == "") {
   toDoListArray[item_index_num].todo_status = "completed";
-
-  if (toDoListArray[item_index_num].todo_status == "completed") {
-  var completedTask = document.getElementsByClassName("todo_item_completed");
-
-  }
+}
+else if (toDoListArray[item_index_num].todo_status == "completed") {
+  toDoListArray[item_index_num].todo_status = "";
+}
 refreshToDoList();
 }
+
 
 function moveItemToTop (item_index_num) {
 var topTask = toDoListArray[item_index_num];
@@ -65,10 +70,27 @@ refreshToDoList();
 }
 
 
+function moveItemToBottom (item_index_num) {
+  var topTask = toDoListArray[item_index_num];
+  if (item_index_num > -1) {
+    toDoListArray.splice(item_index_num, 1);
+    toDoListArray.push(topTask);
+  }
+  for (let todoTask of toDoListArray) {
+    todoTask.todo_index_num = toDoListArray.indexOf(todoTask);
+  }
+
+  refreshToDoList();
+}
 
 
-
-
+function deleteItem (item_index_num) {
+toDoListArray.splice(item_index_num, 1);
+for (let todoTask of toDoListArray) {
+  todoTask.todo_index_num = toDoListArray.indexOf(todoTask);
+}
+refreshToDoList();
+}
 
 
 
