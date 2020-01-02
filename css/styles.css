@@ -11,6 +11,8 @@ h1 {
 table {
   border: 1px solid black;
   font-size: 28px;
+  margin: auto;
+  margin-top: 10px;
 }
 
 .user-input {

@@ -23,7 +23,7 @@ document.getElementById('to-do-list-display').innerHTML = newInnerHtml;
 
 
 
-function addTask(addListItem) {
+function addTask() {
 
 
 
@@ -46,6 +46,7 @@ function setItemCompleted (item_index_num) {
 
   if (toDoListArray[item_index_num].todo_status == "completed") {
   var completedTask = document.getElementsByClassName("todo_item_completed");
+
   }
 refreshToDoList();
 }
@@ -56,6 +57,10 @@ if (item_index_num > -1) {
   toDoListArray.splice(item_index_num, 1);
   toDoListArray.unshift(topTask);
 }
+for (let todoTask of toDoListArray) {
+  todoTask.todo_index_num = toDoListArray.indexOf(todoTask);
+}
+
 refreshToDoList();
 }
 
