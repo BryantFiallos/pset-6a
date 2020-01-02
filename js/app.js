@@ -1,6 +1,12 @@
 var toDoListArray = [];
 
-
+var input = document.getElementById("user-input");
+input.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+   event.preventDefault();
+   document.getElementById("input-task").click();
+ };
+});
 
 
 function refreshToDoList() {
@@ -18,6 +24,8 @@ document.getElementById('to-do-list-display').innerHTML = newInnerHtml;
 
 
 function addTask(addListItem) {
+
+
 
   var task = document.getElementById("user-input").value;
 
@@ -40,6 +48,10 @@ function setItemCompleted (item_index_num) {
   var completedTask = document.getElementsByClassName("todo_item_completed");
   }
 refreshToDoList();
+}
+
+function moveItemToTop (item_index_num) {
+
 }
 
 
