@@ -51,7 +51,12 @@ refreshToDoList();
 }
 
 function moveItemToTop (item_index_num) {
-
+var topTask = toDoListArray[item_index_num];
+if (item_index_num > -1) {
+  toDoListArray.splice(item_index_num, 1);
+  toDoListArray.unshift(topTask);
+}
+refreshToDoList();
 }
 
 
