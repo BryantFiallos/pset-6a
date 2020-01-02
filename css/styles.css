@@ -1,11 +1,12 @@
 body {
-  background-color: #33A5FF
+  background-color: black;
 }
 
 h1 {
   font: bold 5em "Century Gothic", "Century Gothic", "Apple Gothic", sans-serif;
   text-align: center;
   size: 50px;
+  color: white
 }
 
 table {
@@ -15,11 +16,15 @@ table {
   margin-top: 10px;
 }
 
+td {
+  color: white;
+}
+
 .user-input {
   text-align: center;
 }
 
 .todo_item_completed {
   text-decoration: line-through;
-  color: white;
+  color: #00ff00;
 }

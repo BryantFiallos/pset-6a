@@ -37,7 +37,7 @@ function addTask() {
                 alert("New task cannot be empty\n");
             } else {
                 var new_item_num = toDoListArray.length
-				toDoListArray.push({todo_index_num:new_item_num, todo_status:"", todo_description:document.getElementById("user-input").value});
+				toDoListArray.push({todo_index_num:new_item_num, todo_status:"", todo_description:document.getElementById("user-input").value, todo_priority:"low"});
 
         document.getElementById("user-input").value = "";
 }
@@ -58,9 +58,12 @@ refreshToDoList();
 
 function moveItemToTop (item_index_num) {
 var topTask = toDoListArray[item_index_num];
+topTask.todo_priority = "high";
+if (topTask.todo_priority == "high") {
 if (item_index_num > -1) {
   toDoListArray.splice(item_index_num, 1);
   toDoListArray.unshift(topTask);
+}
 }
 for (let todoTask of toDoListArray) {
   todoTask.todo_index_num = toDoListArray.indexOf(todoTask);
@@ -71,11 +74,14 @@ refreshToDoList();
 
 
 function moveItemToBottom (item_index_num) {
-  var topTask = toDoListArray[item_index_num];
+  var lowTask = toDoListArray[item_index_num];
+  lowTask.todo_priority = "low";
+  if (lowTask.todo_priority == "low") {
   if (item_index_num > -1) {
     toDoListArray.splice(item_index_num, 1);
-    toDoListArray.push(topTask);
+    toDoListArray.push(lowTask);
   }
+}
   for (let todoTask of toDoListArray) {
     todoTask.todo_index_num = toDoListArray.indexOf(todoTask);
   }
