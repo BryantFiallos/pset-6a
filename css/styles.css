@@ -44,3 +44,7 @@ button {
   text-decoration: line-through;
   color: #00ff00;
 }
+
+.todo_item_high {
+  color: red;
+}
